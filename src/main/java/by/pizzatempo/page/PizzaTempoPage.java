@@ -1,6 +1,7 @@
-package by.pizzatempo;
+package by.pizzatempo.page;
 
-import gov.login.secure.Singleton;
+
+import by.pizzatempo.singleton.Singleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -43,7 +44,7 @@ public class PizzaTempoPage {
         element.click();
     }
 
-    public void clickOrderButtonOnPopUp(){
+    public void clickOrderButtonOnPopUp() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"order_pizza_popup\"]/div[2]/div[2]/div[2]/div[1]/div[3]/div[4]/button")));
         WebElement element = driver.findElement(By.xpath("//*[@id=\"order_pizza_popup\"]/div[2]/div[2]/div[2]/div[1]/div[3]/div[4]/button"));

@@ -1,5 +1,6 @@
-package gov.login.secure;
+package gov.login.secure.page;
 
+import gov.login.secure.singleton.Singleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

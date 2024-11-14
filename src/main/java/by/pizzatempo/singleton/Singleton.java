@@ -1,9 +1,7 @@
-package by.pizzatempo;
+package by.pizzatempo.singleton;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.time.Duration;
 
 public class Singleton {
     private static WebDriver driver;

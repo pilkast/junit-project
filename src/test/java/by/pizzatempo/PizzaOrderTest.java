@@ -1,6 +1,8 @@
 package by.pizzatempo;
 
-import gov.login.secure.Singleton;
+import by.pizzatempo.page.PizzaTempoPage;
+import by.pizzatempo.singleton.Singleton;
+import by.pizzatempo.step.PizzaTempoStep;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.*;
 
@@ -11,16 +13,13 @@ public class PizzaOrderTest {
 
     @BeforeEach
     public void setUp() {
-        System.out.println("before each test");
         pizzaTempoPage = new PizzaTempoPage();
         pizzaTempoPage.open();
-        System.out.println(Singleton.getDriver());
     }
 
     @Test
     @DisplayName("Order page opens")
     public void orderPageOpens() {
-        System.out.println(Singleton.getDriver());
         pizzaTempoPage.clickPizzaButton();
 
         String titlePizza = pizzaTempoPage.getPizzaTitle();
@@ -30,32 +29,14 @@ public class PizzaOrderTest {
     @Test
     @DisplayName("Add one pizza in basket")
     public void addPizzaInBasket() {
-//        pizzaTempoPage = new PizzaTempoPage();
-//        pizzaTempoPage.open();
-        System.out.println(Singleton.getDriver());
-
-        pizzaTempoPage.clickPizzaButton();
-        String titlePizza = pizzaTempoPage.getPizzaTitle();
-        pizzaTempoPage.clickOrderButtonOnFirstPizza();
-        String orderPopUp = pizzaTempoPage.getOrderPopUp();
-        pizzaTempoPage.clickOrderButtonOnPopUp();
-        pizzaTempoPage.openBasket();
-        String basketTitle = pizzaTempoPage.getBasketTitle();
-
-        SoftAssertions softAssertions = new SoftAssertions();
-        softAssertions.assertThat(titlePizza).as("Пицца").isEqualTo(titlePizza);
-        softAssertions.assertThat(orderPopUp).as("Пицца с курицей, грибами и песто").isEqualTo(orderPopUp);
-        softAssertions.assertThat(basketTitle).as("Оформление заказа").isEqualTo(basketTitle);
-        softAssertions.assertAll();
+        PizzaTempoStep pizzaTempoStep = new PizzaTempoStep();
+        pizzaTempoStep.clickPizzaButtonAndOrderPizzaAndCheckBasket();
+        pizzaTempoStep.assertPizzaIsInOrder();
     }
 
     @Test
     @DisplayName("Add two pizza in basket")
     public void addTwoPizzaInBasket() {
-//        pizzaTempoPage = new PizzaTempoPage();
-//        pizzaTempoPage.open();
-        System.out.println(Singleton.getDriver());
-
         pizzaTempoPage.clickPizzaButton();
         String titlePizza = pizzaTempoPage.getPizzaTitle();
         pizzaTempoPage.clickOrderButtonOnFirstPizza();

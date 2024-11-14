@@ -1,5 +1,7 @@
 package gov.login.secure;
 
+import gov.login.secure.page.SignInPage;
+import gov.login.secure.singleton.Singleton;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
