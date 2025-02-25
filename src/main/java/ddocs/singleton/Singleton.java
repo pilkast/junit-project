@@ -1,4 +1,4 @@
-package gov.login.secure.singleton;
+package ddocs.singleton;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -13,7 +13,6 @@ public class Singleton {
         if (driver == null) {
             driver = new ChromeDriver();
             driver.manage().window().maximize();
-//            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         }
         return driver;
     }
